@@ -1,0 +1,260 @@
+-- Tela Registro Financeiro
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyUp - Registro Financeiro</title>
+
+  <!-- Fontes estilo Canva -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #e8c9f1;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 0;
+    }
+
+    .panel {
+      width: 95%;
+      max-width: 1200px;
+      background: #efe9f7;
+      border-radius: 12px;
+      padding: 30px 40px 40px;
+      border-top: 6px solid #d9c6ec;
+    }
+
+    /* TOPO */
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .top h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      color: #000;
+    }
+
+    .top span {
+      font-style: italic;
+      font-size: 22px;
+      color: #000;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-weight: 500;
+      margin: 10px 0 25px;
+      color: #222;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #f5f2e8;
+      border-radius: 16px;
+      padding: 18px 20px 22px;
+      border: 2px solid #bfbfbf;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed #999;
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    .card h3 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .icon {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .value {
+      margin-top: 18px;
+      font-size: 16px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .money-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      border-bottom: 1px solid #aaa;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      padding: 2px 4px;
+    }
+
+    .money-input::placeholder {
+      color: #777;
+    }
+
+    /* CAMPOS */
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+
+    .input-field {
+      background: #f1eded;
+      border-radius: 20px;
+      padding: 12px 18px;
+      color: #555;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .input-field::placeholder {
+      color: #777;
+    }
+
+    /* BOTÃO */
+    .btn-area {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn {
+      background: #e58a7b;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 45px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #d67769;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .top h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="panel">
+
+    <div class="top">
+      <h1>MoneyUp</h1>
+      <span>Registro Financeiro</span>
+    </div>
+
+    <div class="subtitle">Acompanhe sua evolução mensal</div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Saldo Atual</h3>
+        <div class="icon">💰</div>
+        <div class="value">R$
+          <input type="number" class="money-input" placeholder="0,00" step="0.01">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Total de receitas</h3>
+        <div class="icon">📈</div>
+        <div class="value">R$
+          <input type="number" class="money-input" placeholder="0,00" step="0.01">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Total de Despesas</h3>
+        <div class="icon">📊</div>
+        <div class="value">R$
+          <input type="number" class="money-input" placeholder="0,00" step="0.01">
+        </div>
+      </div>
+    </div>
+
+    <div class="fields">
+      <input type="date" class="input-field" placeholder="dd/mm/aaaa">
+
+      <select class="input-field">
+        <option value="" disabled selected>Formas de pagamento</option>
+        <option>Dinheiro</option>
+        <option>Pix</option>
+        <option>Cartão (Débito)</option>
+        <option>Cartão (Crédito)</option>
+      </select>
+    </div>
+
+    <div class="btn-area">
+      <button class="btn" id="saveBtn" type="button">Salvar Registro</button>
+    </div>
+
+    <div id="msg" style="text-align:center; margin-top:12px; color:#2b7a2b; font-weight:500; display:none;">
+      ✔ Salvo com sucesso!
+    </div>
+
+  </section>
+
+<script>
+  const btn = document.getElementById('saveBtn');
+  const msg = document.getElementById('msg');
+
+  btn.addEventListener('click', () => {
+    msg.style.display = 'block';
+
+    // esconde a mensagem depois de 3 segundos
+    setTimeout(() => {
+      msg.style.display = 'none';
+    }, 3000);
+  });
+</script>
+
+</body>
+</html>
