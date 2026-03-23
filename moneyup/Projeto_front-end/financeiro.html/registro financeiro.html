@@ -1,0 +1,102 @@
+-- registro financeiro--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyUp - Registro Financeiro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+background:#e8c9f1;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+padding:40px;
+}
+
+.panel{
+width:95%;
+max-width:1200px;
+background:#efe9f7;
+padding:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.money-input{
+border:none;
+border-bottom:1px solid #aaa;
+}
+
+.btn{
+margin-top:20px;
+padding:10px 30px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<section class="panel">
+
+<h1>MoneyUp</h1>
+
+<div class="cards">
+
+<input type="number" id="saldo" placeholder="Saldo">
+
+<input type="number" id="receitas" placeholder="Receitas">
+
+<input type="number" id="despesas" placeholder="Despesas">
+
+</div>
+
+<input type="date" id="data">
+
+<button class="btn" id="saveBtn">Salvar</button>
+
+<div id="msg" style="display:none; color:green;">
+Salvo com sucesso!
+</div>
+
+</section>
+
+<script type="module">
+
+import { salvarRegistro } from './financeiro.js';
+
+const btn = document.getElementById('saveBtn');
+const msg = document.getElementById('msg');
+
+btn.addEventListener('click', () => {
+
+  const registro = {
+    saldo: document.getElementById("saldo").value,
+    receitas: document.getElementById("receitas").value,
+    despesas: document.getElementById("despesas").value,
+    data: document.getElementById("data").value
+  };
+
+  salvarRegistro(registro);
+
+  msg.style.display = 'block';
+
+  setTimeout(() => {
+    msg.style.display = 'none';
+  }, 3000);
+});
+
+</script>
+
+</body>
+</html>

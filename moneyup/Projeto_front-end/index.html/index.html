@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyUp</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background-color:#e8c9f1;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.container{
+width:95%;
+max-width:1200px;
+padding:50px 60px;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:40px;
+align-items:center;
+}
+
+.left h1{
+font-family:'Playfair Display',serif;
+font-size:48px;
+color:#2b1c46;
+margin-bottom:25px;
+}
+
+.left h2{
+font-size:26px;
+color:#2b1c46;
+margin-bottom:15px;
+}
+
+.left p{
+font-size:16px;
+color:#555;
+margin-bottom:35px;
+}
+
+.graph-area{
+display:flex;
+align-items:flex-end;
+gap:10px;
+margin-bottom:35px;
+}
+
+.bar{
+width:26px;
+background:#4b66f0;
+border-radius:6px 6px 0 0;
+}
+
+.b1{height:45px;}
+.b2{height:70px;}
+.b3{height:95px;}
+.b4{height:120px;}
+.b5{height:145px;}
+
+.btn{
+padding:14px 50px;
+background:#dce9c8;
+border-radius:30px;
+border:2px solid #b7c9a1;
+cursor:pointer;
+}
+
+.right{
+text-align:center;
+}
+
+.money-icon{
+font-size:120px;
+margin-bottom:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="container">
+
+<div class="left">
+
+<h1 id="logo"></h1>
+<h2 id="title"></h2>
+<p id="subtitle"></p>
+
+<div class="graph-area">
+<div class="bar b1"></div>
+<div class="bar b2"></div>
+<div class="bar b3"></div>
+<div class="bar b4"></div>
+<div class="bar b5"></div>
+</div>
+
+<button class="btn" id="startBtn">Começar</button>
+
+</div>
+
+<div class="right">
+<div class="money-icon">💰</div>
+<p id="cta"></p>
+<span id="desc"></span>
+</div>
+
+</section>
+
+<script type="module">
+
+// MÓDULO (AGORA CORRETO)
+import { dados } from './js/dados.js';
+
+//  GERAÇÃO DINÂMICA
+document.getElementById("logo").textContent = dados.logo;
+document.getElementById("title").textContent = dados.title;
+document.getElementById("subtitle").textContent = dados.subtitle;
+document.getElementById("cta").textContent = dados.cta;
+document.getElementById("desc").textContent = dados.desc;
+
+//  EVENTO
+document.getElementById("startBtn").addEventListener("click", () => {
+  alert("Bem-vindo ao MoneyUp!");
+});
+
+</script>
+
+</body>
+</html>

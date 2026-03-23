@@ -1,0 +1,142 @@
+---tela cadastro---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyUp - Cadastro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+body{
+min-height:100vh;
+background:#e8c9f1;
+font-family:'Poppins',sans-serif;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+header{
+width:100%;
+max-width:1200px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 40px 10px;
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:48px;
+}
+
+header span{
+font-style:italic;
+font-size:20px;
+}
+
+.card{
+background:#fff;
+border-radius:35px;
+padding:40px 50px;
+width:90%;
+max-width:750px;
+margin-top:10px;
+}
+
+.form-group{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:15px;
+margin-bottom:14px;
+}
+
+.form-group input{
+height:38px;
+border-radius:10px;
+border:none;
+background:#f1eded;
+padding:0 12px;
+}
+
+.btn-area{
+display:flex;
+justify-content:center;
+margin-top:25px;
+}
+
+.btn-cadastrar{
+padding:12px 50px;
+background:#dce9c8;
+border-radius:30px;
+cursor:pointer;
+}
+
+#mensagem{
+text-align:center;
+margin-top:15px;
+color:green;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MoneyUp</h1>
+<span>Cadastro</span>
+</header>
+
+<div class="card">
+
+<div class="form-group">
+<label>Nome</label>
+<input type="text" id="nome">
+</div>
+
+<div class="form-group">
+<label>Telefone</label>
+<input type="tel" id="telefone">
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="email">
+</div>
+
+<div class="btn-area">
+<button class="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
+</div>
+
+<p id="mensagem">Cadastro com sucesso!</p>
+
+</div>
+
+<script type="module">
+
+import { salvarCadastro } from './cadastro.js';
+
+function cadastrar(){
+
+  const dadosUsuario = {
+    nome: document.getElementById("nome").value,
+    telefone: document.getElementById("telefone").value,
+    email: document.getElementById("email").value
+  };
+
+  salvarCadastro(dadosUsuario);
+
+  document.getElementById("mensagem").style.display="block";
+}
+
+window.cadastrar = cadastrar;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+import { salvarCadastro } from './js/cadastro.js';
